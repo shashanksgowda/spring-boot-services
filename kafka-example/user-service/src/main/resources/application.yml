@@ -1,0 +1,25 @@
+server:
+  port: 9000
+spring:
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: create-drop
+  application:
+    name: USER-SERVICE
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      acks: all
+      retries: 3
+      batch.size: 16384
+      linger.ms: 1
+      buffer.memory: 3355443
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+

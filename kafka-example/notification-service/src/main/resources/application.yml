@@ -1,0 +1,22 @@
+server:
+  port: 9002
+spring:
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: create-drop
+  application:
+    name: NOTIFICATION-SERVICE
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
